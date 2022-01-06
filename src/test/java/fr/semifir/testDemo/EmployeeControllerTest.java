@@ -155,7 +155,7 @@ public class EmployeeControllerTest {
         // 2.5 on transforme le résultat en Objet
         EmployeDTO finalBody = json.fromJson(resultUpdated.getResponse().getContentAsString(), EmployeDTO.class);
         // 3 on verifie si il a bien été modifie
-        Assertions.assertEquals(finalBody.getUsername(), "tata");
+        Assertions.assertEquals(finalBody.getUsername(), this.employeDTOUpdate().getUsername());
     }
 
     @Test
