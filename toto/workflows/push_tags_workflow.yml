@@ -1,0 +1,10 @@
+name: Pull request Workflow
+on:
+  schedule:
+    - cron: '30 5,17 * * *'
+jobs:
+  build-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Je fais un code Review
+        uses: actions/checkout@v2
