@@ -37,9 +37,13 @@ jobs:
   docker:
     needs: build-app
     runs-on: ubuntu-latest
+    env:
+      VERSION: 2.0.0
     steps:
       - name: Récuperation du repo
         uses: actions/checkout@v2
+        with:
+          ref: refs/tags/${{ env.VERSION }}
       - name: Récuperation du JAR
         uses: actions/download-artifact@v2
         with:
@@ -58,4 +62,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: progfiler/testdemo:latest
+          tags: progfiler/testdemo:${{ env.VERSION }}
